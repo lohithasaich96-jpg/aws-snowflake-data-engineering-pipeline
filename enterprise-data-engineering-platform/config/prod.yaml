@@ -1,0 +1,17 @@
+env: prod
+aws_region: us-east-1
+
+s3:
+  raw_bucket: edp-prod-raw
+  processed_bucket: edp-prod-processed
+  curated_bucket: edp-prod-curated
+
+snowflake:
+  role: SYSADMIN
+  warehouse: COMPUTE_WH
+  database: ANALYTICS
+  schema: MARTS
+
+spark:
+  master: yarn
+  shuffle_partitions: 200

@@ -1,0 +1,10 @@
+environment           = "dev"
+aws_region            = "us-east-1"
+project_name          = "edp"
+vpc_cidr              = "10.10.0.0/16"
+enable_nat_gateway    = false
+instance_type         = "t3.micro"
+enable_emr            = false
+enable_snowflake_role = false
+# allowed_ssh_cidr      = "YOUR_IP/32"
+# alert_email           = "you@example.com"

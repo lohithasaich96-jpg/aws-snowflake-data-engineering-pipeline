@@ -1,0 +1,17 @@
+flowchart LR
+    SRC[Source systems] -->|extract| RAW[(S3 raw)]
+    RAW --> VAL{Validation}
+    VAL -->|pass| SPARK[Spark on EMR]
+    VAL -->|fail| ALERT[SNS / Slack alert]
+    SPARK --> PROC[(S3 processed)]
+    PROC --> SF[(Snowflake)]
+    SF --> MART[Marts / Analytics]
+    MART --> BI[BI dashboards]
+
+    subgraph Orchestration
+      AF[Airflow: sales_pipeline]
+    end
+    AF -.-> RAW
+    AF -.-> VAL
+    AF -.-> SPARK
+    AF -.-> SF

@@ -1,0 +1,18 @@
+# Non-secret, environment-specific settings. Secrets come from env/SSM, never here.
+env: dev
+aws_region: us-east-1
+
+s3:
+  raw_bucket: edp-dev-raw
+  processed_bucket: edp-dev-processed
+  curated_bucket: edp-dev-curated
+
+snowflake:
+  role: SYSADMIN
+  warehouse: COMPUTE_WH
+  database: ANALYTICS
+  schema: STAGING
+
+spark:
+  master: "local[*]"
+  shuffle_partitions: 8

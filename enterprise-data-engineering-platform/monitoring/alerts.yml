@@ -1,0 +1,20 @@
+groups:
+  - name: pipeline
+    rules:
+      - alert: SalesPipelineFailed
+        expr: airflow_dag_run_failed{dag_id="sales_pipeline"} > 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "sales_pipeline DAG failed"
+          description: "The sales_pipeline DAG has a failed run in the last 5 minutes."
+
+      - alert: HighTaskDuration
+        expr: airflow_task_duration_seconds{dag_id="sales_pipeline"} > 3600
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "sales_pipeline task running long"
+          description: "A task has exceeded its 1h SLA."

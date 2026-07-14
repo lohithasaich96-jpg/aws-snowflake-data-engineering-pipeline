@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars.secret
+.terraform.lock.hcl
+
+# Airflow (local)
+airflow/logs/
+airflow/plugins/
+
+# Secrets / env
+.env
+*.pem
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
